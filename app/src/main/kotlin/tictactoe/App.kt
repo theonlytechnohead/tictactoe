@@ -20,13 +20,13 @@ fun main() {
         print("${Board.CROSS.character} plays: ")
         var invalid = true
         while (invalid) {
-            try {
+            invalid = try {
                 val input = readln().split(" ", ",", ", ")
                 val x = input[0].toInt()
                 val y = input[1].toInt()
-                invalid = !board.placeCross(x, y)
+                !board.placeCross(x, y)
             } catch (e: Exception) {
-                invalid = true
+                true
             }
         }
         if (board.checkWin()) {
