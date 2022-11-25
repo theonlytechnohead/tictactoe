@@ -24,7 +24,7 @@ class Board {
     }
 
     private fun clearBoard() {
-        board = Array (3) {Array(3) { EMPTY }}
+        board = Array (3) { Array(3) { EMPTY } }
     }
 
     fun placeCircle(row: Int, column: Int): Boolean {
@@ -80,15 +80,14 @@ class Board {
     }
 
     override fun toString(): String {
-        var output = ""
-        output += "  0   1   2   \n"
-        output += "-------------\n"
-        output += "| ${board[0][0].character} | ${board[0][1].character} | ${board[0][2].character} |  0\n"
-        output += "-------------\n"
-        output += "| ${board[1][0].character} | ${board[1][1].character} | ${board[1][2].character} |  1\n"
-        output += "-------------\n"
-        output += "| ${board[2][0].character} | ${board[2][1].character} | ${board[2][2].character} |  2\n"
-        output += "-------------\n"
-        return output
+        return """
+          0   1   2
+        -------------
+        | ${board[0][0].character} | ${board[0][1].character} | ${board[0][2].character} |  0
+        -------------
+        | ${board[1][0].character} | ${board[1][1].character} | ${board[1][2].character} |  1
+        -------------
+        | ${board[2][0].character} | ${board[2][1].character} | ${board[2][2].character} |  2
+        -------------""".trimIndent() + "\n"
     }
 }

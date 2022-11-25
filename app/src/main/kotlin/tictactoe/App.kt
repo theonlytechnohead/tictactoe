@@ -18,17 +18,16 @@ fun main() {
     while (play) {
         print(board)
         print("${Board.CROSS.character} plays: ")
-        try {
-            var invalid = true
-            while (invalid) {
+        var invalid = true
+        while (invalid) {
+            try {
                 val input = readln().split(" ", ",", ", ")
                 val x = input[0].toInt()
                 val y = input[1].toInt()
                 invalid = !board.placeCross(x, y)
+            } catch (e: Exception) {
+                invalid = true
             }
-        } catch (e: Exception) {
-            play = false
-            continue
         }
         if (board.checkWin()) {
             println("${Board.CROSS.character} wins!")
@@ -36,7 +35,7 @@ fun main() {
             play = false
             continue
         }
-        var invalid = true
+        invalid = true
         while (invalid) {
             val x = (0..2).random()
             val y = (0..2).random()
